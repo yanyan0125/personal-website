@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#page-container {
+    width: 670px;
+    height: 400px;
+    margin: 160px auto;
+    box-shadow: 0 5px 10px #666;
+}
+
+.page-container .swiper-pagination-bullet-active{
+    background: #fff;
+}
+
+.page-container .swiper-button-prev{
+    left : 50px;
+}
+.page-container .swiper-button-next{
+    right : 50px;
+}
+.page-container .swiper-button-prev, .swiper-container-rtl .swiper-button-next{
+    background-image: url(../images/left.png);
+}
+.page-container .swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+    background-image: url(../images/right.png);
+}
+.page-container .swiper-pagination-bullet{
+    opacity: 0.6;
+}

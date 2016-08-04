@@ -1,0 +1,101 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ul ,ol{
+    list-style: none;
+}
+/*ÂÖ²¥Í¼¿ªÊ¼*/
+.box{
+    width: 670px;
+    height: 400px;
+    margin:150px auto;
+    position: relative;
+    box-shadow: 0 0 20px #ccc;
+    -webkit-box-shadow: 0 0 20px #ccc;
+    -moz-box-shadow: 0 0 20px #ccc;
+}
+.box .img-box{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.box .img-box ul{
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+.box .img-box ul li{
+    width: 670px;
+    height: 400px;
+    position: absolute;
+    left: 0;
+    top:0;
+}
+.box .img-box ul li a{
+    display: block;
+    width: 100%;
+    height:100%;
+}
+.box .img-box ul li img{
+    display: block;
+    width: 100%;
+    height:100%;
+}
+.box .toggle{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top:50%;
+    margin-top: -30px;
+}
+.box .toggle span{
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background: #000;
+    color:#fff;
+    font-size: 40px;
+    font-family:consola;
+    text-align: center;
+    line-height: 60px;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+    cursor: pointer;
+}
+.box .toggle span:hover{
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+.box .toggle span.left{
+    left:0;
+}
+.box .toggle span.right{
+    right:0;
+}
+.box .point{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+}
+.box .point li{
+    width: 20px;
+    height: 6px;
+    float: left;
+    border:1px solid #fff;
+    margin: 5px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    cursor: pointer;
+}
+.box .point li:hover{
+    background: #fff;
+}
+.box .point li.current{
+    background: #fff;
+}

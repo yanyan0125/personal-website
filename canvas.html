@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href=" ./favicon.ico" />
+    <title>canvas简单动画</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background: #f1f1f1;
+        }
+
+    </style>
+    <script src="js/konva.min.js"></script>
+    <script src="js/rotate1.js"></script>
+    <script>
+        window.onload = function(){
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            var stage = new  Konva.Stage({
+                container : "container",
+                width : width,
+                height : height
+            });
+            var layer = new Konva.Layer();
+            //建立三个组
+            //背景
+            var bgGroup = new Konva.Group({
+                x : 1/2 *width,
+                y : 1/2 * height
+            });
+
+            //逆时针旋转
+            var nGroup = new Konva.Group({
+                x : 1/2 *width,
+                y : 1/2 * height
+            });
+
+            //顺时针旋转
+            var sGroup = new Konva.Group({
+                x : 1/2 *width,
+                y : 1/2 * height
+            });
+
+            //绘制背景开始
+            //创建大圆
+            var circle1 = new Konva.Circle({
+                x: 0,
+                y: 0,
+                radius:200,
+                dash : [6,4],
+                stroke: '#ccc',
+                strokeWidth: 2
+            });
+            //创建中圆
+            var circle2 = new Konva.Circle({
+                x: 0,
+                y: 0,
+                radius:120,
+                dash : [6,4],
+                stroke: '#BFCFFF',
+                strokeWidth: 2
+            });
+            //创建内圆
+            var circle3 = new Konva.Circle({
+                x: 0,
+                y: 0,
+                radius:100,
+                dash : [4,4],
+                stroke: '#DFBFFF',
+                strokeWidth: 2
+            });
+            //绘制实心圆
+            var circle4 = new Konva.Circle({
+                x: 0,
+                y: 0,
+                radius:55,
+                fill: '#9999FF'
+            });
+            //绘制圆环
+            var ring = new Konva.Ring({
+                x: 0,
+                y: 0,
+                innerRadius: 55,
+                outerRadius: 75,
+                fill: '#ddd'
+            });
+            //绘制文本
+            var simpleText = new Konva.Text({
+                x:-55,
+                y:-8,
+                width : 110,
+                text: '全栈工程师',
+                fontSize:16,
+                fontFamily: '微软雅黑',
+                fill: 'white',
+                align : "center"
+            });
+            //将背景添加到背景的组里面
+            bgGroup.add(circle1);
+            bgGroup.add(circle2);
+            bgGroup.add(circle3);
+            bgGroup.add(circle4);
+            bgGroup.add(ring);
+            bgGroup.add(simpleText);
+
+            //绘制逆时针组的内容
+            //绘制逆时针组的内容
+            var css3 = new MyCircle({
+                x: Math.cos( 90 * Math.PI / 180) * 120,
+                y: Math.sin( 90 * Math.PI / 180) * 120,
+                innerRadius: 64 / 2,
+                outerRadius: 78 / 2,
+                innerColor: "#ffba82",
+                outerColor: "#ccc",
+                innerOpacity: 0.7,
+                outerOpacity: 0.2,
+                text: "css3",
+                fontSize: 16,
+                color: "white",
+                fontFamily: 'Calibri',
+
+            });
+            css3.addGroupOrLayer(nGroup);
+            //绘制逆时针组的内容
+            var nodeJs = new MyCircle({
+                x: Math.cos( 180 * Math.PI / 180) * 120,
+                y: Math.sin( 180 * Math.PI / 180) * 120,
+                innerRadius: 64 / 2,
+                outerRadius: 78 / 2,
+                innerColor: "#b6e563",
+                outerColor: "#ccc",
+                innerOpacity: 0.7,
+                outerOpacity: 0.2,
+                text: "nodeJs",
+                fontSize: 16,
+                color: "white"
+            });
+            nodeJs.addGroupOrLayer(nGroup);
+            //绘制逆时针组的内容
+            var html5 = new MyCircle({
+                x: Math.cos( 270 * Math.PI / 180) * 120,
+                y: Math.sin( 270 * Math.PI / 180) * 120,
+                innerRadius: 64 / 2,
+                outerRadius: 78 / 2,
+                innerColor: "#fd8c6e",
+                outerColor: "#ccc",
+                innerOpacity: 0.7,
+                outerOpacity: 0.2,
+                text: "Html5",
+                fontSize: 16,
+                color: "white"
+            });
+            html5.addGroupOrLayer(nGroup);
+            var jQuery = new MyCircle({
+                x: Math.cos( 0 * Math.PI / 180) * 120,
+                y: Math.sin( 0 * Math.PI / 180) * 120,
+                innerRadius: 64 / 2,
+                outerRadius: 78 / 2,
+                innerColor: "#e68eff",
+                outerColor: "#ccc",
+                innerOpacity: 0.7,
+                outerOpacity: 0.2,
+                text: "jQuery",
+                fontSize: 16,
+                color: "white"
+            });
+            jQuery.addGroupOrLayer(nGroup);
+            //绘制顺时针的圆
+            var rectJs = new MyCircle({
+                x: Math.cos( 45 * Math.PI / 200) * 200,
+                y: Math.sin( 45 * Math.PI / 200) * 200,
+                innerRadius: 70 / 2,
+                outerRadius: 90 / 2,
+                innerColor: "#ffa800",
+                outerColor: "#ccc",
+                innerOpacity: 0.7,
+                outerOpacity: 0.2,
+                text: "rectJs",
+                fontSize: 16,
+                color: "white"
+            });
+            rectJs.addGroupOrLayer(sGroup);
+
+            //向逆时时针层添加内容
+            var webApp = new MyCircle({
+                x: Math.cos( 135 * Math.PI / 180) * 200,
+                y: Math.sin(135 * Math.PI / 180) * 200,
+                innerRadius: 70 / 2,
+                outerRadius: 90 / 2,
+                innerColor: "#98a7ff",
+                outerColor: "#ccc",
+                innerOpacity: 0.7,
+                outerOpacity: 0.2,
+                text: "webApp",
+                fontSize: 16,
+                color: "white"
+            });
+            webApp.addGroupOrLayer(sGroup);
+            var zeptoJs = new MyCircle({
+                x: Math.cos( 250 * Math.PI / 200) * 200,
+                y: Math.sin( 250 * Math.PI / 200) * 200,
+                innerRadius: 70 / 2,
+                outerRadius: 90 / 2,
+                innerColor: "#ffa4c8",
+                outerColor: "#ccc",
+                innerOpacity: 0.7,
+                outerOpacity: 0.2,
+                text: "zeptoJs",
+                fontSize: 16,
+                color: "white"
+            });
+            zeptoJs.addGroupOrLayer(sGroup);
+
+            //向逆时时针层添加内容
+            var canvas = new MyCircle({
+                x: Math.cos( 315 * Math.PI / 180) * 200,
+                y: Math.sin(315 * Math.PI / 180) * 200,
+                innerRadius: 70 / 2,
+                outerRadius: 90 / 2,
+                innerColor: "#7fdeef",
+                outerColor: "#ccc",
+                innerOpacity: 0.7,
+                outerOpacity: 0.2,
+                text: "canvas",
+                fontSize: 16,
+                color: "white"
+            });
+            canvas.addGroupOrLayer(sGroup);
+
+            layer.add(bgGroup);
+            layer.add(nGroup);
+            layer.add(sGroup);
+
+            //控制小球每秒转多少度
+            var preSecondAngle = 40;
+            var anim = new Konva.Animation(function(frame) {//每帧会调用一次
+                //用来存放动画的执行逻辑
+                //frame.timeDiff,得到两帧动画之间的时间间隔
+                //得到每两个动画之间转了多少度
+                var temple = preSecondAngle * frame.timeDiff / 1000;
+                //让小球动起来
+                nGroup.rotate(-temple);
+                //让组中的文字不要跟着组转到（反方向转动）
+                nGroup.getChildren().each(function(item,index){
+                    // item.rotate(-temple);
+                    item.rotate(temple);
+                });
+                sGroup.rotate(temple);
+                sGroup.getChildren().each(function(item,index){
+                    // item.rotate(-temple);
+                    item.rotate(-temple);
+                });
+                // update stuff
+            }, layer);//动画发生的层
+            anim.start();
+            //给页面添加事件
+            layer.on("mouseover",function(){
+                preSecondAngle = 20;
+            });
+            layer.on("mouseout",function(){
+                preSecondAngle = 40;
+            });
+            stage.add(layer);
+        };
+
+    </script>
+</head>
+<body>
+<div id="container"></div>
+</body>
+</html>

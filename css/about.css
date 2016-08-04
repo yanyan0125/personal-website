@@ -1,0 +1,36 @@
+body{
+    background: #f1f1f1;
+}
+.main{
+    width: 1150px;
+    background: #fff;
+    margin: 25px auto 0;
+    padding: 25px;
+    overflow: hidden;
+}
+.main h1{
+    font-size: 22px;
+    line-height: 60px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.main h2{
+    font-size: 20px;
+    line-height:60px;
+    color: #007aff;
+}
+
+.main img{
+    margin-right: 15px;
+}
+.main p{
+    font-size: 16px;
+    text-indent: 2em;
+    padding-left: 15px;
+    line-height: 35px;
+}
+.main-box{
+    margin-bottom: 20px;
+}
+

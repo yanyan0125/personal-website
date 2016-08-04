@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href=" ../favicon.ico" />
+    <title>angular实现单页面程序</title>
+    <link rel="stylesheet" href="css/angular.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="css/page1.css"/>
+    <link rel="stylesheet" href="page1/css/swiper.css"/>
+    <link rel="stylesheet" href="css/page2.css"/>
+    <link rel="stylesheet" href="css/page4.css"/>
+
+</head>
+<body ng-app="myApp">
+<div class="view">
+    <div class="nav">
+        <ul>
+            <li auto-active="active"><a ui-sref="page1">swiper.js</a></li>
+            <li auto-active="active"><a ui-sref="page2">html5</a></li>
+            <li auto-active="active"><a ui-sref="page4">animate.css</a></li>
+        </ul>
+    </div>
+    <div class="tab">
+        <div ui-view="myPage1"></div>
+        <div ui-view="myPage2"></div>
+        <div ui-view="myPage4"></div>
+    </div>
+</div>
+
+<script src="js/jquery-1.12.1.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/angular-ui-router.js"></script>
+<script src="app.js"></script>
+<script src="js/common.js"></script>
+
+<!--page1-->
+<script src="page1/js/swiper.js"></script>
+
+
+<script src="page1/route.js"></script>
+<script src="page2/route.js"></script>
+<script src="page4/route.js"></script>
+
+
+
+</body>
+</html>

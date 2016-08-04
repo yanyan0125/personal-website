@@ -1,0 +1,43 @@
+.tab{
+    width: 600px;
+    height: 400px;
+    border: 1px solid #ccc;
+    font-family: 'microsoft yahei';
+    position: absolute;
+    left: 50%;
+    top:50%;
+    margin-left: -300px;
+    margin-top: -200px;
+}
+.tab div:nth-of-type(1){
+    height: 50px;
+}
+.tab div:nth-of-type(1) > span{
+    width:25%;
+    height:50px;
+    line-height: 50px;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+.tab div:nth-of-type(1) > span.current{
+    background: #ff6e19;
+    color: #fff;
+}
+.tab div:nth-of-type(2){
+    height:200px;
+    border:0;
+}
+.tab div:nth-of-type(2) > div{
+    height:350px;
+    text-align: center;
+    line-height: 350px;
+    font-size: 30px;
+    display:none;
+    color:#fff;
+}
+.tab div:nth-of-type(2) > div.current{
+    display: block;
+}

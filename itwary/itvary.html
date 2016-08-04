@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <!--指明当前的浏览器渲染这个页面需要使用的最新渲染引擎-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--标准的移动端web页面视口设置-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="shortcut icon" href=" ../favicon.ico" />
+    <title>Bootstrap</title>
+    <!--引入bootstrap核心css文件-->
+    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!--
+        html5shiv 让我们的Ie9一下支持  html5标签
+        respond  让我们的Ie9一下支持  媒体查询
+        注意：respond.js 需要工作在以http形式打开的页面当中
+    -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="lib/html5shiv/html5shiv.min.js"></script>
+    <script src="lib/respond/respond.js"></script>
+
+    <![endif]-->
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+
+<!--TODO-->
+<!--头部开始-->
+<header class="wjs_header hidden-sm hidden-xs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <a href="#" class="wjs_weixin">
+                    <span class="glyphicon glyphicon-phone"></span>
+                    <span>手机itVary</span>
+                    <span class="glyphicon glyphicon-menu-down"></span>
+
+                </a>
+            </div>
+            <div class="col-md-5">
+                <span class="wjs_icon wjs_icon_tel"></span>
+                <span>0755-85282468</span>
+            </div>
+            <div class="col-md-2">
+                <a href="#" class="mr10">常见问题</a>
+                <a href="#">登录</a>
+            </div>
+            <div class="col-md-3">
+                <!-- Indicates a dangerous or potentially negative action -->
+                <a href="#" class="btn btn-danger btn-xs load mr10">登录</a>
+                <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+                <a href="#" class="">注册</a>
+            </div>
+        </div>
+    </div>
+</header>
+<!--导航栏-->
+<nav class="navbar wjs_bar" data-spy="affix" data-offset-top="60">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <span class="wjs_icon wjs_icon_logo"></span>
+                <span class="wjs_icon wjs_icon_word"></span>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbarposition" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">我要学习</a></li>
+                <li><a href="#">我要交流</a></li>
+                <li><a href="#">新手专区</a></li>
+                <li><a href="#">最新动态</a></li>
+                <li><a href="#">留言板</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right hidden-sm">
+                <li><a href="#">个人中心</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!--轮播图开始-->
+<div class="wjs_banner">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators" >
+
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<script type="text/template" id="point_template">
+    <%_.each(model,function(obj,i){%>
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="<%=(i==0?'active':'')%>"></li>
+    <%})%>
+</script>
+<script type="text/template" id="img_template">
+    <%_.each(model,function(obj,i){%>
+        <div class="item <%=(i==0?'active':'')%>">
+            <%if(isMobile){%>
+                <a href="#" class="imgBox"><img src="<%=obj.img%>" alt=""/></a>
+            <%}else{%>
+                <a href="#" class="bacBox" style="background-image: url(<%=obj.bac%>)"></a>
+            <%}%>
+        </div>
+    <%})%>
+</script>
+<!--infro 开始-->
+<div class="wjs-info  hidden-xs">
+    <div class="container">
+            <div class="col-md-4 col-sm-6">
+                <a href="#" class="wjs-info-a">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="wjs_icon wjs_icon_E903"></span>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">免费的在线学习</h4>
+                            <p>更多大牛跟你一起交流</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="#" class="wjs-info-a">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="wjs_icon wjs_icon_E903"></span>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">免费的在线学习</h4>
+                            <p>更多大牛跟你一起交流</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="#" class="wjs-info-a">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="wjs_icon wjs_icon_E903"></span>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">免费的在线学习</h4>
+                            <p>更多大牛跟你一起交流</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="#" class="wjs-info-a">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="wjs_icon wjs_icon_E903"></span>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">免费的在线学习</h4>
+                            <p>更多大牛跟你一起交流</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="#" class="wjs-info-a">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="wjs_icon wjs_icon_E903"></span>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">免费的在线学习</h4>
+                            <p>更多大牛跟你一起交流</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="#" class="wjs-info-a">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="wjs_icon wjs_icon_E903"></span>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">免费的在线学习</h4>
+                            <p>更多大牛跟你一起交流</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+    </div>
+
+
+</div>
+
+<!--预约 start-->
+<div class="wjs-book">
+    <div class="container">
+        <div class="pull-left">
+            <span class="wjs_icon wjs_icon_E906"></span>
+            当前有800人在学习，累计学习超过10000次。
+            <a href="#" class="wjs-book-a">开始学习</a>
+        </div>
+
+    </div>
+</div>
+<!--tab栏 start-->
+<div class="wjs-tab">
+    <div class="container">
+        <!-- Nav tabs -->
+        <div class="wjs-nav-tabs-partent">
+            <ul class="nav wjs-nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#wjs-tab-01" aria-controls="home" role="tab" data-toggle="tab">特别推荐</a></li>
+                <li role="presentation"><a href="#wjs-tab-02" aria-controls="profile" role="tab" data-toggle="tab">微学习</a></li>
+                <li role="presentation"><a href="#wjs-tab-03" aria-controls="messages" role="tab" data-toggle="tab">微学习</a></li>
+                <li role="presentation"><a href="#wjs-tab-04" aria-controls="settings" role="tab" data-toggle="tab">微学习</a></li>
+                <li role="presentation"><a href="#wjs-tab-05" aria-controls="settings" role="tab" data-toggle="tab">微学习</a></li>
+                <li role="presentation"><a href="#wjs-tab-06" aria-controls="settings" role="tab" data-toggle="tab">微学习</a></li>
+                <li role="presentation"><a href="#wjs-tab-07" aria-controls="settings" role="tab" data-toggle="tab">微学习</a></li>
+            </ul>
+        </div>
+        <!-- Tab panes -->
+        <div class="tab-content wjs-product">
+            <div role="tabpanel" class="tab-pane active" id="wjs-tab-01">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <a href="#" class="wjs-product-pro exp">
+                        <div class="product-right">
+                            <p><b>8</b><sub>%</sub></p>
+                            <p>时间</p>
+                        </div>
+                        <div class="product-left">
+                            <h3>新手成长区</h3>
+                            <div class="product-left-text">
+                                <div class="col-xs-6 text-left">
+                                    <p>时间</p>
+                                    <p>费用</p>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    <p>每天1个小时</p>
+                                    <p>免费</p>
+                                </div>
+                                <div class="col-xs-6 text-left">
+                                    <p>收获</p>
+                                    <p>result</p>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    <p>每天一点点</p>
+                                    <p>成长为大牛</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <a href="#" class="wjs-product-pro ">
+                        <div class="product-right">
+                            <p><b>8</b><sub>%</sub></p>
+                            <p>时间</p>
+                        </div>
+                        <div class="product-left">
+                            <h3>新手成长区</h3>
+                            <div class="product-left-text">
+                                <div class="col-xs-6 text-left">
+                                    <p>时间</p>
+                                    <p>费用</p>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    <p>每天1个小时</p>
+                                    <p>免费</p>
+                                </div>
+                                <div class="col-xs-6 text-left">
+                                    <p>收获</p>
+                                    <p>result</p>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    <p>每天一点点</p>
+                                    <p>成长为大牛</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <a href="#" class="wjs-product-pro ">
+                        <div class="product-right">
+                            <p><b>8</b><sub>%</sub></p>
+                            <p>时间</p>
+                        </div>
+                        <div class="product-left">
+                            <h3>新手成长区</h3>
+                            <div class="product-left-text">
+                                <div class="col-xs-6 text-left">
+                                    <p>时间</p>
+                                    <p>费用</p>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    <p>每天1个小时</p>
+                                    <p>免费</p>
+                                </div>
+                                <div class="col-xs-6 text-left">
+                                    <p>收获</p>
+                                    <p>result</p>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    <p>每天一点点</p>
+                                    <p>成长为大牛</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <a href="#" class="wjs-product-pro ">
+                        <div class="product-right">
+                            <p><b>8</b><sub>%</sub></p>
+                            <p>时间</p>
+                        </div>
+                        <div class="product-left">
+                            <h3>新手成长区</h3>
+                            <div class="product-left-text">
+                                <div class="col-xs-6 text-left">
+                                    <p>时间</p>
+                                    <p>费用</p>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    <p>每天1个小时</p>
+                                    <p>免费</p>
+                                </div>
+                                <div class="col-xs-6 text-left">
+                                    <p>收获</p>
+                                    <p>result</p>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    <p>每天一点点</p>
+                                    <p>成长为大牛</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="wjs-tab-02">2</div>
+            <div role="tabpanel" class="tab-pane" id="wjs-tab-03">3</div>
+            <div role="tabpanel" class="tab-pane" id="wjs-tab-04">4</div>
+            <div role="tabpanel" class="tab-pane" id="wjs-tab-05">5</div>
+            <div role="tabpanel" class="tab-pane" id="wjs-tab-06">6</div>
+            <div role="tabpanel" class="tab-pane" id="wjs-tab-07">7</div>
+        </div>
+
+    </div>
+</div>
+<!--news start-->
+<div class="wjs-news">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-2 col-md-offset-2">
+            <h3 class="wjs-news-title">全部动态</h3>
+        </div>
+        <div class="col-md-1 wjs-line-parent">
+            <div class="wjs-line hidden-xs hidden-sm"></div>
+            <!-- Nav tabs -->
+            <ul class="nav wjs-news-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><span class="wjs_icon wjs_icon_new01"></span></a></li>
+                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><span class="wjs_icon wjs_icon_new02"></span></a></li>
+                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><span class="wjs_icon wjs_icon_new03"></span></a></li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><span class="wjs_icon wjs_icon_new04"></span></a></li>
+            </ul>
+        </div>
+        <div class="col-md-7">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active wjs-text" id="home">
+                    <p><a href="#">【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                    <p><a href="#">【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                    <p><a href="#">【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                    <p><a href="#">【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                </div>
+                <div role="tabpanel" class="tab-pane active wjs-text" id="profile">
+                    <p><a href="#">【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                    <p><a href="#">【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                    <p><a href="#">【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                    <p><a href="#">【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                </div>
+                <div role="tabpanel" class="tab-pane active wjs-text" id="messages">
+                    <p><a href="#">【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                    <p><a href="#">【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                    <p><a href="#">【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                    <p><a href="#">【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                </div>
+
+                <div role="tabpanel" class="tab-pane wjs-text" id="settings">
+                    <p><a href="#"> 【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                    <p><a href="#"> 【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                    <p><a href="#"> 【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                    <p><a href="#"> 【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                    <p><a href="#">【itVary】开始构建自己的网站 2016年7月18日</a></p>
+                    <p><a href="#">【itVary】开始构建自己的网站 2016年7月18日</a></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--合作伙伴-->
+<div class="wjs-partener">
+    <h3>合作伙伴</h3>
+    <ul>
+
+        <li><a href="#" class="wjs_icon footer-link3"></a></li>
+        <li><a href="#" class="wjs_icon footer-link4"></a></li>
+        <li><a href="#" class="wjs_icon footer-link5"></a></li>
+        <li><a href="#" class="wjs_icon footer-link6"></a></li>
+        <li><a href="#" class="wjs_icon footer-link7"></a></li>
+        <li><a href="#" class="wjs_icon footer-link8"></a></li>
+        <li><a href="#" class="wjs_icon footer-link9"></a></li>
+    </ul>
+
+</div>
+<!--bootstrap是依赖与jquery这个库-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="lib/jquery/jquery.min.js"></script>
+<!--bootstrap 核心js文件-->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="lib/underscore/underscore-min.js"></script>
+<script src="js/swipe.js"></script>
+<script src="js/index.js"></script>
+
+</body>
+</html>
